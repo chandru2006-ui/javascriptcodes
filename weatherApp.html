@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Forecast</title>
+  <style>
+    body {
+      font-family: Arial;
+      background-color: skyblue;
+      text-align: center;
+      padding: 50px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-right: 10px;
+      border-radius: 5px;
+      background-color: rgb(172, 181, 189);
+      border: none;
+    }
+    button {
+      padding: 10px;
+      font-weight: bold;
+      border-radius: 5px;
+      background-color: #007BFF;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 18px;
+      color: rgb(53, 51, 51);
+      border-radius: 20px;
+      background-color: cadetblue;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+    }
+    img {
+      width: 100px;
+      height: 100px;
+    }
+    .container {
+      background-color: rgb(34, 175, 218);
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+      width: 350px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    .back-button
+    {
+        margin-top: 250px;
+        width: 13%;
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 1000px;
+        background-color: blue;
+    }
+    .back-button:hover
+    {
+        background-color: #007BFF;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>🌧️ Weather Forecast App</h2>
+
+    <input type="text" id="city" placeholder="Enter City">
+    <button onclick="getWeather()">Check Weather</button>
+
+    <div id="result"></div>
+  </div>
+ <button onclick="location.href='index.html'" class="back-button">
+    Back
+ </button>
+  <script>
+    async function getWeather() {
+      const city = document.getElementById("city").value;
+      const apiKey = "22332068219700aaef959a27e71ee009"; // Replace with your actual API key
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+
+        const resultDiv = document.getElementById("result");
+
+        if (data.cod === 200) {
+          const temp = data.main.temp;
+          const desc = data.weather[0].description;
+          const wind = data.wind.speed;
+          const icon = data.weather[0].icon;
+          const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+
+          resultDiv.className = "";
+          resultDiv.innerHTML = `
+            <h3>Weather in ${data.name}</h3>
+            <img src="${iconUrl}" alt="Weather Icon"><br>
+            🌡️ Temperature: ${temp}°C<br>
+            ☁️ Condition: ${desc}<br>
+            💨 Wind Speed: ${wind} m/s
+          `;
+        } else {
+          resultDiv.className = "error";
+          resultDiv.innerHTML= "City not found!";
+          resultDiv.style.color="red";
+
+        }
+      } catch (error) {
+        const resultDiv = document.getElementById("result");
+        resultDiv.className = "error";
+        resultDiv.innerHTML = "Error fetching data.";
+        resultDiv.style.color="red";
+        
+      }
+    }
+  </script>
+
+</body>
+</html>

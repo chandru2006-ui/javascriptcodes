@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Countdown Timer</title>
+  <style>
+    body {
+      background-color: #0f6c97;
+      font-family: 'Arial', sans-serif;
+      margin-top: 100px;
+      margin-left: 400px;
+
+
+    }
+
+    h1 {
+      font-size: 40px;
+      color: #124f8b;
+    }
+
+    #timer {
+      font-size: 40px;
+      margin: 20px 0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      margin: 10px;
+      font-weight: bold;
+      
+    }
+
+    #start {
+      background-color: #0681d3;
+      color: white;
+    }
+
+    #stop {
+      background-color: #e4200a;
+      color: white;
+    }
+
+    #reset {
+      background-color: #1cc766;
+      color: black;
+    }
+    .time-container
+    {
+        border: 2px solid black;
+        max-width: 500px;
+        padding: 50px;
+        background-color: #ceeaf7;    
+    }
+    .bottom-bar
+    {
+          margin-top: 150px;
+    }
+    .back-button
+    {
+      background-color: blue;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      font-size: medium;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      width: 15%;
+      margin-left: 750px;
+    }
+    .back-button:hover
+    {
+      background-color: #0681d3;
+    }
+    
+    
+  </style>
+</head>
+<body>
+<div class="time-container">
+  <h1>TIMER</h1>
+  <div id="timer">25 : 00</div>
+
+  <button id="start">START</button>
+  <button id="stop">STOP</button>
+  <button id="reset">RESET</button>
+</div>
+</div>
+<div class="bottom-bar">
+<input onclick="location.href='index.html'" value="Back" class="back-button">
+</div>
+ 
+  <script>
+    let startBtn = document.getElementById("start");
+    let stopBtn = document.getElementById("stop");
+    let resetBtn = document.getElementById("reset");
+    let timerDisplay = document.getElementById("timer");
+
+    let time = 1500; // 25 minutes in seconds
+    let timer = null;
+
+    function updateDisplay() {
+      let minutes = Math.floor(time / 60);
+      let seconds = time % 60;
+      timerDisplay.innerHTML = `${String(minutes).padStart(2, '0')} : ${String(seconds).padStart(2, '0')}`;
+    }
+
+    function startTimer() {
+      if (timer !== null) return;
+      timer = setInterval(() => {
+        if (time > 0) {
+          time--;
+          updateDisplay();
+        } else {
+          clearInterval(timer);
+          timer = null;
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(timer);
+      timer = null;
+    }
+
+    function resetTimer() {
+      stopTimer();
+      time = 1500;
+      updateDisplay();
+    }
+
+    startBtn.addEventListener("click", startTimer);
+    stopBtn.addEventListener("click", stopTimer);
+    resetBtn.addEventListener("click", resetTimer);
+
+    updateDisplay(); // initialize display
+  </script>
+
+</body>
+</html>

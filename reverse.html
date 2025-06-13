@@ -1,0 +1,108 @@
+<html>
+    <body>
+        <form>
+          <div class="container">
+            <h1>Revere Caculator</h1>
+            String <input type="text" name="hname" id="hstr" placeholder="Enter the string" required>
+            <br><br>
+            <h3>Reverse String :</h3>
+            <textarea id="result" rows="auto" cols="auto"></textarea><br><br><br>
+            <div class="b1">
+            <input type="button" value="reverse" onclick="reverse1()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="b2" type="button" value="reset" onclick="reset()">
+            </div>
+            </div>
+            <div class="bottom-bar">
+            <input onclick="location.href='index.html'" value="Back" class="back-button">
+           </div>
+        </form>
+        
+        <script>
+          function reverse1()
+          {
+            var str=document.getElementById("hstr").value;
+            let i;
+            var reversestring=" ";
+          for(i=str.length-1;i>=0;i--)
+          {
+             reversestring +=str[i];
+          }
+          document.getElementById("result").value=reversestring;
+          }
+          function reset()
+          {
+            document.getElementById("hstr").value="";
+            document.getElementById("result").value="";
+          }
+        </script>
+        <style>
+          body
+          {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            font-family:italic;
+            font-weight: bold;
+            font-size: large;
+          }
+          .container
+          {
+            border: 2px solid black;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: beige;
+            margin-left: 400px;
+          }
+          input[type="button"]
+          {
+            padding: 8px;
+            font-weight: bold;
+            background-color:red;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            margin-left: 20px;
+          }
+          input[value="reset"]
+          {
+            background-color: green;
+            padding: 10px;
+          }
+          input[type="text"]
+          {
+            padding: 10px;
+            border: 1px solid brown;
+            text-align: center;
+          }
+          div h1
+          {
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color:green;
+          }
+          .back-button {
+                padding: 15px;
+                background-color: white;
+                width: 15%;
+                color:white;
+                font-weight: bold;
+                border: none;
+                border-radius: 10px;
+                background-color: blue;
+                font-weight: bold;
+                font-weight: bold;
+                font-size: medium;
+                text-align: center;
+                margin-left: 1000px;
+                margin-top: 120px;
+            }
+            .back-button:hover
+            {
+              background-color: cornflowerblue;
+            }
+          
+        </style>
+    </body>
+</html>

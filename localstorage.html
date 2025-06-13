@@ -1,0 +1,101 @@
+<html>
+    <title>Local Storage</title>
+    <body>
+        <div class="storage-container">
+            <h1>Local Storage</h1>
+        Name&nbsp;<input type="text" name="hname" id="nid"><br><br>
+        Age&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="hpas" id="aid"><br><br>
+        <input type="button" value="save" onclick="saveof()">
+        <input type="button" value="load" onclick="loadof()">
+        </div>
+        
+        <div class="bottom-bar">
+        <input onclick="location.href='index.html'" value="Back" class="back-button">
+        </div>
+    
+    <script>
+        function saveof()
+        {
+           var Username=document.getElementById("nid").value;
+           var Age=document.getElementById("aid").value;
+           localStorage.setItem("name",Username);
+           localStorage.setItem("age",Age);
+           alert("Usrname and Password Saved Successfully!");
+
+        }
+        function loadof()
+        {
+           var name1=localStorage.getItem("name");
+           var age1=localStorage.getItem("age");
+           
+           if(name1 && age1)
+           {
+             alert(`Username:${name1} and Password:${age1} Stored Successfully!`);
+           }
+           else
+           {
+            alert("No Data Found!please Try Again!");
+           }
+
+        }
+        
+    </script>
+    <style>
+    body
+    {
+        background-color: aquamarine;
+        margin-top: 100px;
+       margin-left: 400px;
+       margin-right: 500px;
+        color: black;
+    }
+    .storage-container
+    {
+        border: 2px solid black;
+        padding: 20px;
+        background-color: rgb(147, 147, 226);
+    }
+    input
+    {
+        padding: 10px;
+        border: 1px solid black;
+    }
+    input[type="button"]
+    {
+        background-color: rgb(9, 199, 9);
+        font-weight:bold;
+        color: rgb(3, 1, 1);
+        border-radius: 10px;
+        border: none;
+        width: 30%;
+        width: 100px;
+    }
+    h1
+    {
+        text-align: center;
+    }
+    input[type="button"]:hover
+    {
+        background-color: red;
+    }
+    .back-button
+    {
+      background-color: blue;
+      padding: 13px;
+      border: none;
+      border-radius: 10px;
+      font-size: medium;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      width: 20%;
+      margin-left: 800px;
+      margin-top: 200px;
+    }
+    .back-button:hover
+    {
+      background-color: #0681d3;
+    }
+    </style>
+    </body>
+</html>

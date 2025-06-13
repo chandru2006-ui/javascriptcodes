@@ -1,0 +1,174 @@
+<html>
+    <body>
+        <style>
+            body
+            {
+                margin-top: 10px;
+                margin-left: 500px;
+                background-image: url("calimg.jpg");
+                
+            }
+            .container
+            {
+                width: 100%;
+                max-width: 500px;
+                min-height: 50%;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                border: 2px solid black;
+                padding: 20px;
+                text-align: center;
+                background-color:bisque;
+                box-sizing: border-box;
+                border-radius: 30px;
+
+                
+
+            }
+            .container lable
+            {
+                font-weight: bold;
+                font-size: larger;
+            }
+            input[type="button"]
+            {
+                border: 1px solid black;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: #0095f6;
+                border: none;
+                color: white;
+                width: 20%;
+                font-weight: bold;
+            }
+            input[type="number"]
+            {
+                padding: 15px;
+                border: 2px solid black;
+                border-radius: 10px;
+                text-align: center;
+            }
+            div .re1
+            {
+                background-color: red;
+                border: none;
+                width: 30%;
+                font-weight: bold;
+                font-size: large;
+            }
+            #result
+            {
+                border: 2px solid black;
+                padding: 20px;
+                width: 70%;
+                margin-left: 80px;
+                background-color: aliceblue;
+                border: none;
+                border-radius: 10px;
+                box-sizing: border-box;
+                color: blue;
+                
+            }
+            .back-button
+    {
+        margin-top: 20px;
+        width: 15%;
+        padding: 10px;
+        font-weight: bold;
+        font-size: medium;
+        margin-left: 700px;
+        background-color: blue;
+        border: none;
+        font-weight: bold;
+        border-radius: 10px;
+        color: white;
+        font-size: medium;
+    }
+     .back-button:hover
+     {
+        background-color:cornflowerblue;
+     }
+            
+        </style>
+        <div class="container">
+            <h1>Calculator</h1>
+        <form>
+           <lable>Number 1</lable> 
+            <input type="number" placeholder="number1" id="num1" required >
+            <br><br>
+            <lable>Number 2</lable>
+            <input type="number" placeholder="number2" id="num2" required >
+            <br><br><br>
+            <input type="button" value="Addition" onclick="add()">&nbsp;&nbsp;&nbsp;
+            <input type="button" value="Subtraction" onclick="sub()">&nbsp;&nbsp;&nbsp;
+            <input type="button" value="Multiply" onclick="mul()">&nbsp;&nbsp;&nbsp;
+            <input type="button" value="division" onclick="div()">&nbsp;&nbsp;&nbsp;
+        </form><br>
+           <div><input class="re1" type="button" value="reset" onclick="reset()"></div>
+           <br>
+           <h1>Result :</h1>
+           <div id="result" ></div>
+           
+           </div>
+           <button onclick="location.href='index.html'" class="back-button">
+    Back
+    </button>
+           
+        <script>
+            function add()
+            {
+            alert("Welcome to Addition");
+            var num1=Number(document.getElementById("num1").value);
+            var num2=Number(document.getElementById("num2").value);
+            var result=num1+num2;
+            document.getElementById("result").innerHTML="Addition :"+result;
+            
+
+            }
+            function sub()
+            {
+            alert("Welcome to Subtraction");
+            var num1=document.getElementById("num1").value;
+            var num2=document.getElementById("num2").value;
+            var result=num1-num2;
+            document.getElementById("result").innerHTML="Subtraction :"+result;
+            
+
+            }
+            function mul()
+            {
+            alert("Welcome to Multiplication");
+            var num1=document.getElementById("num1").value;
+            var num2=document.getElementById("num2").value;
+            var result=num1*num2;
+            document.getElementById("result").innerHTML="Multiplication :"+result;
+            
+
+            }
+            function div()
+            {
+            alert("Welcome to Division");
+            var num1=document.getElementById("num1").value;
+            var num2=document.getElementById("num2").value;
+            if(num2==0)
+            {
+                alert("please try again!zero became infinite");
+            }
+            else{
+            
+            var result=num1/num2;
+            document.getElementById("result").innerHTML="division :"+result;
+            
+            }
+
+           }
+           
+        function reset()
+        {
+            document.getElementById("num1").value=" ";
+            document.getElementById("num2").value=" ";
+            document.getElementById("result").innerHTML=" ";
+        }
+
+        </script>
+    </body>
+</html>

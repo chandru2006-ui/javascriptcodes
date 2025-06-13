@@ -1,0 +1,163 @@
+<html>
+    <body>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: bisque;
+                min-height: 100vh;
+                position: relative;
+                margin: 0;
+            }
+            .container {
+                width: 100%;
+                max-width: 500px;
+                min-height: 50%;
+                box-sizing: border-box;
+                border: 2px solid black;
+                border-radius: 10px;
+                position: relative;
+                color: white;
+                background-color: black;
+            }
+            .heading h1 {
+                border: 2px solid black;
+                color: black;
+                text-align: center;
+                padding: 7px;
+                margin: 10px 20px 10px 20px;
+                border-radius: 100px;
+                background-color: white;
+            }
+            input[type="password"] {
+                margin-left: 50px;
+                padding: 10px;
+                border-radius: 100px;
+                margin-top: 40px;
+                border: none;
+                text-align: center;
+            }
+            .range {
+                position: absolute;
+                bottom: 40px;
+                left: 50px;
+                color: rgb(253, 251, 251);
+            }
+            button {
+                padding: 10px;
+                width: 20%;
+                color: rgb(8, 8, 8);
+                font-weight: bold;
+                border-radius: 100px;
+                border: none;
+            }
+            input[type="number"] {
+                width: 50px;
+                padding: 5px;
+                border: none;
+                color: rgb(255, 241, 241);
+                background-color: black;
+            }
+
+            .bottom-bar {
+                position: fixed;
+                bottom: 10px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .back-button {
+                padding: 15px;
+                background-color: white;
+                color:white;
+                font-weight: bold;
+                border: none;
+                border-radius: 10px;
+                background-color: blue;
+                font-weight: bold;
+                font-weight: bold;
+                font-size: medium;
+                text-align: center;
+                margin-left: 1000px;
+            }
+            .back-button:hover
+            {
+              background-color: cornflowerblue;
+            }
+        </style>
+
+        <div class="container">
+            <div class="heading">
+                <h1>Password-Genarator</h1>
+            </div>
+            <div class="password">
+                <input type="password" id="hpas" placeholder="Password" oninput="validate()">&nbsp;&nbsp;&nbsp;&nbsp;Password&nbsp;&nbsp;&nbsp;
+                <button id="b1" onclick="copyPassword()">Copy</button>
+            </div>
+            <div class="range">
+                <input type="range" id="hrange" min="1" max="1" value="1">&nbsp;&nbsp;&nbsp;&nbsp;
+                Length<input type="number" id="n1" readonly>
+                <input type="checkbox" id="hcharacter" value="character" onclick="validate()">Character&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" id="hnumber" value="num" onclick="validate()">Number
+            </div>
+        </div>
+
+        <div class="bottom-bar">
+            <input onclick="location.href='index.html'" value="Back" class="back-button">
+        </div>
+
+        <script>
+            function validate() {
+                var password = document.getElementById("hpas").value;
+                var result = document.getElementById("n1");
+                var numCheckbox = document.getElementById("hnumber");
+                var charCheckbox = document.getElementById("hcharacter");
+                var range1 = document.getElementById("hrange");
+
+                var numcount = 0,
+                    charcount = 0;
+
+                for (var i = 0; i < password.length; i++) {
+                    let char = password[i];
+
+                    if (/[0-9]/.test(char)) {
+                        numcount++;
+                    }
+                    if (/[a-zA-Z!@#$%^&*()_+:\-;><,.=\-{}\[\]'"`~]/.test(char)) {
+                        charcount++;
+                    }
+                }
+
+                let finalcount = 0;
+
+                if (numCheckbox.checked && charCheckbox.checked) {
+                    finalcount = numcount + charcount;
+                } else if (numCheckbox.checked) {
+                    finalcount = numcount;
+                } else if (charCheckbox.checked) {
+                    finalcount = charcount;
+                } else {
+                    finalcount = 0;
+                }
+
+                result.value = finalcount;
+                range1.max = password.length;
+                range1.value = finalcount;
+            }
+
+            function copyPassword() {
+                var copy = document.getElementById("hpas").value;
+
+                if (copy === "") {
+                    alert("Password is not yet copied");
+                } else {
+                    navigator.clipboard.writeText(copy)
+                        .then(() => alert("Password copied"))
+                        .catch(() => alert("Error copying password"));
+                }
+            }
+        </script>
+    </body>
+</html>

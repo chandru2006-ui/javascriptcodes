@@ -1,0 +1,137 @@
+<html>
+    <body>
+        <div class="container">
+        <h1>TO DO LIST</h1>
+        <input type="text" name="hname" id="hid" placeholder="Enter a item"><br><br>
+        <input type="button" value="ADD" onclick="additem()"><br><br>
+        <div id="result"> 
+        </div>
+        </div>
+        <button onclick="location.href='index.html'" class="back-button">
+    Back
+ </button>
+        <script>
+            function additem()
+            {
+                
+                var items=document.getElementById("hid").value;
+                if(items==="")
+                {
+                  alert("Plese give input!");
+                }
+                else
+                {
+                var divEL=document.createElement("div");
+                divEL.style.padding="5px";
+                divEL.style.margin="5px 0";
+                divEL.style.backgroundColor="gray";
+                divEL.style.display="flex";
+                divEL.style.justifyContent="space-between";
+                divEL.style.padding="10px";
+                divEL.style.alignItems="center";
+                divEL.style.fontSize="20px"
+                
+                var textcontent=document.createElement("span");
+                textcontent.textContent=items;
+
+                var bt=document.createElement("button");
+                bt.style.backgroundColor="red";
+                bt.style.color="white";
+                bt.style.border="none";
+                bt.textContent="button";
+                bt.style.borderRadius="5px";
+                bt.style.padding="10px";
+
+
+                bt.onclick=function()
+                {
+                    divEL.remove();
+                }
+                divEL.appendChild(textcontent);
+                divEL.appendChild(bt);
+                document.getElementById("result").appendChild(divEL);
+                document.getElementById("hid").value="";
+
+            }
+        }
+        </script>
+        <style>
+            body
+            {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                background-color: cadetblue;
+                margin-top: 50px;
+                
+            }
+            .container
+            {
+                border: 2px solid black;
+                padding: 10px;
+                background-color: azure;
+                width: 100%;
+                max-width: 500px;
+                margin-left: 100px;
+                border-radius: 5px;
+
+            }
+            #result
+            {
+                font-size: small;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            input[type="button"]
+            {
+                background-color: green;
+                padding: 10px;
+                width: 30%;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+                color: white;
+                border: none;
+                border-radius: 5px;
+            }
+            input[type="text"]
+            {
+                padding: 10px;
+                background-color: aquamarine;
+                border: 2px solid rgb(155, 116, 68);
+                border-radius: 5px;
+                color: rgb(15, 15, 15);
+                font-weight: bold;
+                font-size: 15px;
+            }
+            h1
+            {
+                text-align: center;
+                margin-top: 0px;
+                color: rgb(19, 19, 104);
+            }
+            .back-button {
+                padding: 15px;
+                background-color: white;
+                width: 15%;
+                color:white;
+                font-weight: bold;
+                border: none;
+                border-radius: 10px;
+                background-color: blue;
+                font-weight: bold;
+                font-weight: bold;
+                font-size: medium;
+                text-align: center;
+                margin-left: 1000px;
+                margin-top: 300px;
+            }
+            .back-button:hover
+            {
+              background-color: cornflowerblue;
+            }
+
+        </style>
+
+    </body>
+</html>
