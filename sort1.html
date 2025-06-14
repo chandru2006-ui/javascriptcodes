@@ -1,91 +1,125 @@
-<html>
-    <body>
-        <div class="container">
-            <h1>Sorting</h1>
-        <form>
-            Input  &nbsp;<input type="text" id="hsort" placeholder="hello" required><br><br>
-            <h3>Result(sorting) </h3>
-            <textarea id="result" style="color: blue;font-weight: bold;"></textarea><br><br>
-            <input type="button" value="sort" onclick="strings()"><br><br>
-            <input class="b2" type="button" value="reset" onclick="reset()">
-        </form>
-        <div class="bottom-bar">
-            <input onclick="location.href='index.html'" value="Back" class="back-button">
-        </div>
-        </div>
-        <script>
-            function strings()
-            {
-            var input=document.getElementById("hsort").value;
-            var  output=input.split('');
-            var sortlogic=output.sort().join('');
-            document.getElementById("result").value=sortlogic;
-            }
-            function reset()
-            {
-            document.getElementById("hsort").value="";
-            document.getElementById("result").value="";
-            }
-            
-        </script>
-        <style>
-            body
-            {
-                display:flex;
-                justify-content: center;
-                align-items: center;
-                font-weight: bold;
-                background-color: rgb(71, 71, 95);
-            }
-            .container
-            {
-                border: 2px solid black;
-                padding: 20px;
-                border-radius: 10px;
-                background-color: rgb(188, 221, 221);
-            }
-            input[type="text"],textarea
-            {
-                padding: 10px;
-                text-align: center;
-                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                font-weight: bold;
-                border: 2px solid black;
-                border-radius: 5px;
-                font-size: medium;
-            }
-            input[type="button"]
-            {
-            padding: 10px;
-            width: 40%;
-            font-weight: bold;
-            background-color:rgb(12, 117, 38);
-            border-radius: 5px;
-            border: none;
-            color: white;
-            margin-left: 60px;
-            }
-            .container h1
-            {
-                text-align: center;
-            }
-            input[value="reset"]
-            {
-            background-color:red;
-            padding: 10px;
-           }
-           .back-button
-           {
-             margin-top: 10px;
-             background-color: rgb(3, 3, 253);
-             padding: 12px;
-             color: white;
-             font-weight: bold;
-             font-size: medium;
-             border: none;
-             text-align: center;
-             border-radius: 10px;
-           }
-        </style>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sorting</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      background-color: rgb(71, 71, 95);
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      border: 2px solid black;
+      padding: 30px;
+      border-radius: 10px;
+      background-color: rgb(188, 221, 221);
+      width: 90%;
+      max-width: 500px;
+      box-sizing: border-box;
+    }
+
+    .container h1 {
+      text-align: center;
+      color: green;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 5px;
+      font-size: medium;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      height: 100px;
+      color: blue;
+      resize: none;
+      font-weight: bold;
+      background-color: #f0f8ff;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    input[type="button"] {
+      padding: 10px 20px;
+      font-weight: bold;
+      background-color: rgb(12, 117, 38);
+      color: white;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      width: 40%;
+    }
+
+    input[value="reset"] {
+      background-color: red;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      background-color: rgb(3, 3, 253);
+      padding: 12px 24px;
+      color: white;
+      font-weight: bold;
+      font-size: medium;
+      border: none;
+      text-align: center;
+      border-radius: 10px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+
+    .back-button:hover {
+      background-color: dodgerblue;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sorting</h1>
+    <form>
+      Input <input type="text" id="hsort" placeholder="Enter text..." required><br><br>
+      <h3>Result (Sorting):</h3>
+      <textarea id="result" readonly></textarea><br>
+
+      <div class="button-group">
+        <input type="button" value="Sort" onclick="strings()">
+        <input type="button" value="Reset" onclick="reset()">
+      </div>
+    </form>
+
+    <input type="button" onclick="location.href='index.html'" value="Back" class="back-button">
+  </div>
+
+  <script>
+    function strings() {
+      var input = document.getElementById("hsort").value.trim();
+      var output = input.split('');
+      var sortlogic = output.sort().join('');
+      document.getElementById("result").value = sortlogic;
+    }
+
+    function reset() {
+      document.getElementById("hsort").value = "";
+      document.getElementById("result").value = "";
+    }
+  </script>
+</body>
 </html>
