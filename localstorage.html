@@ -1,101 +1,139 @@
+<!DOCTYPE html>
 <html>
+  <head>
     <title>Local Storage</title>
-    <body>
-        <div class="storage-container">
-            <h1>Local Storage</h1>
-        Name&nbsp;<input type="text" name="hname" id="nid"><br><br>
-        Age&nbsp;&nbsp;&nbsp;&nbsp;<input type="password" name="hpas" id="aid"><br><br>
-        <input type="button" value="save" onclick="saveof()">
-        <input type="button" value="load" onclick="loadof()">
-        </div>
-        
-        <div class="bottom-bar">
-        <input onclick="location.href='index.html'" value="Back" class="back-button">
-        </div>
-    
-    <script>
-        function saveof()
-        {
-           var Username=document.getElementById("nid").value;
-           var Age=document.getElementById("aid").value;
-           localStorage.setItem("name",Username);
-           localStorage.setItem("age",Age);
-           alert("Usrname and Password Saved Successfully!");
-
-        }
-        function loadof()
-        {
-           var name1=localStorage.getItem("name");
-           var age1=localStorage.getItem("age");
-           
-           if(name1 && age1)
-           {
-             alert(`Username:${name1} and Password:${age1} Stored Successfully!`);
-           }
-           else
-           {
-            alert("No Data Found!please Try Again!");
-           }
-
-        }
-        
-    </script>
     <style>
-    body
-    {
+      body {
+        margin: 0;
+        padding: 0;
         background-color: aquamarine;
-        margin-top: 100px;
-       margin-left: 400px;
-       margin-right: 500px;
-        color: black;
-    }
-    .storage-container
-    {
-        border: 2px solid black;
-        padding: 20px;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      .storage-container {
+        width: 90%;
+        max-width: 400px;
         background-color: rgb(147, 147, 226);
-    }
-    input
-    {
-        padding: 10px;
-        border: 1px solid black;
-    }
-    input[type="button"]
-    {
-        background-color: rgb(9, 199, 9);
-        font-weight:bold;
-        color: rgb(3, 1, 1);
+        border: 2px solid black;
+        padding: 30px;
         border-radius: 10px;
-        border: none;
-        width: 30%;
-        width: 100px;
-    }
-    h1
-    {
+        box-sizing: border-box;
+      }
+
+      .storage-container h1 {
         text-align: center;
-    }
-    input[type="button"]:hover
-    {
+        margin-bottom: 20px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: 1px solid black;
+        font-size: 16px;
+      }
+
+      input[type="button"] {
+        padding: 12px;
+        margin: 5px;
+        width: 45%;
+        max-width: 150px;
+        background-color: rgb(9, 199, 9);
+        color: black;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      input[type="button"]:hover {
         background-color: red;
-    }
-    .back-button
-    {
-      background-color: blue;
-      padding: 13px;
-      border: none;
-      border-radius: 10px;
-      font-size: medium;
-      font-weight: bold;
-      text-align: center;
-      color: white;
-      width: 20%;
-      margin-left: 800px;
-      margin-top: 200px;
-    }
-    .back-button:hover
-    {
-      background-color: #0681d3;
-    }
+        color: white;
+      }
+
+      .bottom-bar {
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .back-button {
+        padding: 12px 24px;
+        background-color: blue;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .back-button:hover {
+        background-color: #0681d3;
+      }
+
+      @media screen and (max-width: 500px) {
+        input[type="button"] {
+          width: 100%;
+          margin: 8px 0;
+        }
+
+        .back-button {
+          width: 100%;
+          margin-top: 20px;
+        }
+      }
     </style>
-    </body>
+  </head>
+
+  <body>
+    <div class="storage-container">
+      <h1>Local Storage</h1>
+      <label for="nid">Name</label>
+      <input type="text" name="hname" id="nid" placeholder="Enter Name" />
+      <label for="aid">Password</label>
+      <input type="password" name="hpas" id="aid" placeholder="Enter Password" />
+      <div style="text-align: center;">
+        <input type="button" value="Save" onclick="saveof()" />
+        <input type="button" value="Load" onclick="loadof()" />
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <input
+        onclick="location.href='index.html'"
+        value="Back"
+        class="back-button"
+      />
+    </div>
+
+    <script>
+      function saveof() {
+        var Username = document.getElementById("nid").value;
+        var Age = document.getElementById("aid").value;
+        localStorage.setItem("name", Username);
+        localStorage.setItem("age", Age);
+        alert("Username and Password Saved Successfully!");
+      }
+
+      function loadof() {
+        var name1 = localStorage.getItem("name");
+        var age1 = localStorage.getItem("age");
+
+        if (name1 && age1) {
+          alert(`Username: ${name1} and Password: ${age1} Stored Successfully!`);
+        } else {
+          alert("No Data Found! Please Try Again!");
+        }
+      }
+    </script>
+  </body>
 </html>
