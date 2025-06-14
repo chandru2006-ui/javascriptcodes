@@ -1,336 +1,341 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <div class="container">
-            <form>
-                <label>First Name</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="user.png">
-                </div>
-                <input type="text" name="hname" id="fid" placeholder="First name">
-                </div><p id="Ferror"></p><br>
- 
-                <label>Last Name</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="user.png">
-                </div>
-                <input type="text" name="hname" id="lid"  placeholder="Last name" >
-                </div><p id="Lerror"></p><br>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            font-weight: bold;
+            overflow-y: scroll;
+            background-color: aquamarine;
+            padding: 20px;
+        }
 
-                <label>Email</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="mail.png">
-                </div>
-                <input type="text" name="hname" id="eid" placeholder="Email" >
-                </div><p id="Eerror"></p><br>
-                
-                <label>Phone</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="phone.png">
-                </div>
-                <input type="text" name="hname" id="phoneid"  placeholder="Phone" >
-                <p id="result"></p>
-                </div><p id="PHerror"></p><br>
-              
-                <label>Address</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="home.png">
-                </div>
-                <input type="text" name="hname" id="aid" placeholder="Address" >
-                <p id="result"></p>
-                </div><p id="Aerror"></p><br>
+        .container {
+            border: 2px solid black;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            background-color: rgb(227, 230, 230);
+        }
 
-                <label>City</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="home.png">
-                </div>
-                <input type="text" name="hname" id="cid"  placeholder="City">
-                <p id="result"></p>
-                </div><p id="Cerror"></p><br>
+        input, select, textarea {
+            box-sizing: border-box;
+            padding: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: none;
+            font-size: medium;
+        }
 
-                <label>State</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="home.png">
-                </div><p id="result"></p>
-                <select id="stateid"  >
-                <option value="">Please select your state</option>
-                <option>Tamil Nadu</option>
-                <option>Kerala</option>
-                <option>Andra pradesh</option>
-                <option>Karnadaka</option>
-                <option>gova</option>
-                <option>Maharastra</option>
-                <option>Orisa</option>
-                <option>Jarkand</option>
-                <option>Gujarath</option>
-                <option>Rajasthan</option>
-                <option>sikkim</option>
-                <option>Jummu Kashmir</option>
-                <option>Hariyana</option>
-                </select>
-                </div><p id="Serror"></p><br>
+        textarea {
+            border: 1px solid black;
+        }
 
-                <div class="radiofiled">
-                <label>Do you have hosting?</label>
-                <input type="radio" name="hosting" value="yes">yes<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="radio" name="hosting" value="No">No
-                </div><p id="Rerror"></p><br>
+        input[type="radio"] {
+            width: 20px;
+        }
 
-                <label>Project Description</label>
-                <div class="input-filed">
-                <div class="icon">
-                <img src="description.png">
-                </div>
-                <textarea id="pid" rows="3" cols="15" placeholder="Project Description"></textarea>
-                <p id="result"></p>
-                </div><p id="Perror"></p><br><br>
-                <div class="bt">
-                <input type="button" value="Send" onclick="Formvalidation()">
-                </div>
-                
+        input[type="button"] {
+            width: 20%;
+            margin-left: 150px;
+            background-color: orange;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            color: white;
+        }
 
-            </form>
-            <button onclick="location.href='index.html'" class="back-button">
-    Back
-    </button>
-        </div>
+        p {
+            color: red;
+        }
+
+        .input-filed {
+            display: flex;
+            border: 1px solid black;
+        }
+
+        .input-filed .icon {
+            border-right: 1px solid black;
+            background-color: gainsboro;
+            padding: 10px;
+        }
+
+        .input-filed .icon img {
+            width: 100%;
+            height: 5vh;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            width: 20%;
+            padding: 10px;
+            font-weight: bold;
+            font-size: medium;
+            margin-left: 700px;
+            background-color: blue;
+            border: none;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .back-button:hover {
+            background-color: cornflowerblue;
+        }
+
         
-        <style>
-            body
-            {
-                
-               display: flex;
-               justify-content: center;
-               align-items: start; 
-               font-weight: bold;
-               overflow-y: scroll;
-               background-color: aquamarine;
-               
-                
-            }
-            
-            .container
-            {
-                border: 2px solid black;
-                padding: 20px;
-                width: 100%;
-                max-width: 400px;
-                border-radius: 10px;
-                background-color: rgb(227, 230, 230);
-            }
-            input,select,textarea
-            {
-                box-sizing: border-box;
-                padding:10px;
-                width: 100%;
-                max-width: 400px;
-                text-align: center;
-                border: none;
-                font-size: medium;
-            }
-            textarea
-            {
-                border: 1px solid black;
-                border: none;
-                
-            }
-            input[type="radio"]
-            {
-                width: 100%;
-                max-width: 20px;
-            }
-            input[type="button"]
-            {
-                width: 20%;
-                margin-left: 150px;
-                background-color: orange;
-                border: none;
-                border-radius: 10px;
-                font-weight: bold;
-                color: white;
-            }
-            p
-            {
-                color: red;
-            }
-            .input-filed{
-                display: flex;
-                border: 1px solid black;
-
-            }
-            .input-filed .icon
-            {
-                border-right: 1px solid black;
-                background-color: gainsboro;
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                align-items: center;
                 padding: 10px;
-                
             }
-            .input-filed .icon img
-            {
+
+            .container {
                 width: 100%;
-                height: 5vh;
+                padding: 15px;
+                margin: 0;
+            }
+
+            input, select, textarea {
+                width: 100%;
+                font-size: 16px;
+                text-align: left;
+            }
+
+            input[type="button"] {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .back-button {
+                width: 100%;
+                margin-left: 0;
+                font-size: 16px;
+            }
+
+            .input-filed {
+                flex-direction: row;
+                align-items: center;
+            }
+
+            .input-filed .icon img {
+                height: 24px;
+                width: 24px;
+            }
+
+            .radiofiled label,
+            .radiofiled input {
+                display: inline-block;
+            }
+
+            .radiofiled {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .bt {
+                display: flex;
                 justify-content: center;
-                padding:0px;
-
             }
-            .back-button
-    {
-        margin-top: 20px;
-        width: 20%;
-        padding: 10px;
-        font-weight: bold;
-        font-size: medium;
-        margin-left: 700px;
-        background-color: blue;
-        border: none;
-        font-weight: bold;
-        border-radius: 10px;
-        color: white;
-        font-size: medium;
-    }
-     .back-button:hover
-     {
-        background-color:cornflowerblue;
-     }
-    
-            
-        </style>
-        <script>
-            function Formvalidation()
-            {
-                var Firstname=document.getElementById("fid").value;
-                var Lastname=document.getElementById("lid").value;
-                var email=document.getElementById("eid").value;
-                var Address=document.getElementById("aid").value;
-                var city=document.getElementById("cid").value;
-                var projectdes=document.getElementById("pid").value;
-                var phone=document.getElementById("phoneid").value;
-                var state=document.getElementById("stateid").value;
-                var host=document.getElementsByName("hosting");
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <label>First Name</label>
+            <div class="input-filed">
+                <div class="icon"><img src="user.png"></div>
+                <input type="text" id="fid" placeholder="First name">
+            </div>
+            <p id="Ferror"></p><br>
 
-                var FirstPat=/^[A-Za-z]+$/;
-                var LastPat=/^[A-Za-z]+$/;
-                var emailPat=/^[a-z0-9]+@[a-z]{5}[.][a-z]{3}$/;
-                var phonePat=/^[6-9]{1}[0-9]{9}$/;
-                var i=0,j=0,k=0,l=0,m=0,n=0,p=0,q=0,s=0;
+            <label>Last Name</label>
+            <div class="input-filed">
+                <div class="icon"><img src="user.png"></div>
+                <input type="text" id="lid" placeholder="Last name">
+            </div>
+            <p id="Lerror"></p><br>
 
-                if(Firstname==="")
-                {
-                    document.getElementById("Ferror").innerText="Please Supply your First name!";
-                    i=1;
-                }
-                else if(!FirstPat.test(Firstname))
-                {
-                   document.getElementById("Ferror").innerText="Firstname musht be letters only(upper & lower)";
-                   i=1;
-                }
+            <label>Email</label>
+            <div class="input-filed">
+                <div class="icon"><img src="mail.png"></div>
+                <input type="text" id="eid" placeholder="Email">
+            </div>
+            <p id="Eerror"></p><br>
 
-                if(Lastname==="")
-                {
-                    document.getElementById("Lerror").innerText="Please Supply your Last name!";
-                    j=1;
-                }
-                else if(!LastPat.test(Lastname))
-                {
-                    document.getElementById("Lerror").innerText="Lastname musht be letters only(upper & lower)";
-                    j=1;
-                }
-                
+            <label>Phone</label>
+            <div class="input-filed">
+                <div class="icon"><img src="phone.png"></div>
+                <input type="text" id="phoneid" placeholder="Phone">
+            </div>
+            <p id="PHerror"></p><br>
 
-                if(email==="")
-                {
-                    document.getElementById("Eerror").innerText="Please Supply your mail!";
-                    k=1;
-                }
-                else if(!emailPat.test(email))
-                {
-                    document.getElementById("Eerror").innerText="Email musht be [abcd[0-9]@gmail.com] format only ";
-                    k=1;
-                }
-                
+            <label>Address</label>
+            <div class="input-filed">
+                <div class="icon"><img src="home.png"></div>
+                <input type="text" id="aid" placeholder="Address">
+            </div>
+            <p id="Aerror"></p><br>
 
-                if(Address==="")
-                {
-                    document.getElementById("Aerror").innerText="Please Supply your Address !";
-                    l=1;
-                }
+            <label>City</label>
+            <div class="input-filed">
+                <div class="icon"><img src="home.png"></div>
+                <input type="text" id="cid" placeholder="City">
+            </div>
+            <p id="Cerror"></p><br>
 
-                if(city==="")
-                {
-                    document.getElementById("Cerror").innerText="Please Supply your city name!";
-                    m=1;
-                }
+            <label>State</label>
+            <div class="input-filed">
+                <div class="icon"><img src="home.png"></div>
+                <select id="stateid">
+                    <option value="">Please select your state</option>
+                    <option>Tamil Nadu</option>
+                    <option>Kerala</option>
+                    <option>Andra Pradesh</option>
+                    <option>Karnataka</option>
+                    <option>Goa</option>
+                    <option>Maharashtra</option>
+                    <option>Odisha</option>
+                    <option>Jharkhand</option>
+                    <option>Gujarat</option>
+                    <option>Rajasthan</option>
+                    <option>Sikkim</option>
+                    <option>Jammu Kashmir</option>
+                    <option>Haryana</option>
+                </select>
+            </div>
+            <p id="Serror"></p><br>
 
-                if(projectdes==="")
-                {
-                    document.getElementById("Perror").innerText="Please Supply your project description!";
-                    n=1;
-                }
+            <div class="radiofiled">
+                <label>Do you have hosting?</label><br>
+                <input type="radio" name="hosting" value="yes"> Yes
+                <input type="radio" name="hosting" value="no"> No
+            </div>
+            <p id="Rerror"></p><br>
 
-                if(phone==="")
-                {
-                    document.getElementById("PHerror").innerText="Please Supply your phone number!";
-                    q=1;
-                }
-                else if(!phonePat.test(phone))
-                {
-                    document.getElementById("PHerror").innerText="phone number musht be 10 digit only";
-                    q=1;
-                }
+            <label>Project Description</label>
+            <div class="input-filed">
+                <div class="icon"><img src="description.png"></div>
+                <textarea id="pid" rows="3" cols="15" placeholder="Project Description"></textarea>
+            </div>
+            <p id="Perror"></p><br><br>
 
-                if(state==="")
-                {
-                    document.getElementById("Serror").innerText="Please choose the state!";
-                    p=1;
-                }
+            <div class="bt">
+                <input type="button" value="Send" onclick="Formvalidation()">
+            </div>
+        </form>
 
-                var hostresult=false;
-                for(var a=0;a<host.length;a++)
-                {
-                    if(host[a].checked)
-                   {
-                       hostresult=true;
-                   }
-                }
-                if(!hostresult)
-                {
-                    document.getElementById("Rerror").innerText="Please choose hosting option!"
-                     s=1;
-                }
+        <button onclick="location.href='index.html'" class="back-button">Back</button>
+    </div>
 
-                if(i==0 && j==0 && k==0 && l==0 && m==0 && n==0 && p==0 && q==0 && s==0)
-                {
-                    alert("Successfully Sned!");
-                    document.getElementById("fid").value="";
-                    document.getElementById("lid").value="";
-                    document.getElementById("eid").value="";
-                    document.getElementById("aid").value="";
-                    document.getElementById("cid").value="";
-                    document.getElementById("pid").value="";
-                    document.getElementById("phoneid").value="";
-                    document.getElementById("stateid").value="";
-                    var hosted=document.getElementsByName("hosting");
-                    for (let i = 0; i < hosted.length; i++) {
-                     hosted[i].checked = false;
-                      }
-                    
-                }
-                else
-                {
-                    alert("Invalid Cradentails");
-                }
-                
-               
+    <script>
+        function Formvalidation() {
+            var Firstname = document.getElementById("fid").value;
+            var Lastname = document.getElementById("lid").value;
+            var email = document.getElementById("eid").value;
+            var Address = document.getElementById("aid").value;
+            var city = document.getElementById("cid").value;
+            var projectdes = document.getElementById("pid").value;
+            var phone = document.getElementById("phoneid").value;
+            var state = document.getElementById("stateid").value;
+            var host = document.getElementsByName("hosting");
 
+            var FirstPat = /^[A-Za-z]+$/;
+            var LastPat = /^[A-Za-z]+$/;
+            var emailPat = /^[a-z0-9]+@[a-z]{5}[.][a-z]{3}$/;
+            var phonePat = /^[6-9]{1}[0-9]{9}$/;
+
+            var i = 0, j = 0, k = 0, l = 0, m = 0, n = 0, p = 0, q = 0, s = 0;
+
+            if (Firstname === "") {
+                document.getElementById("Ferror").innerText = "Please supply your first name!";
+                i = 1;
+            } else if (!FirstPat.test(Firstname)) {
+                document.getElementById("Ferror").innerText = "First name must be letters only.";
+                i = 1;
             }
-        </script>
-    </body>
+
+            if (Lastname === "") {
+                document.getElementById("Lerror").innerText = "Please supply your last name!";
+                j = 1;
+            } else if (!LastPat.test(Lastname)) {
+                document.getElementById("Lerror").innerText = "Last name must be letters only.";
+                j = 1;
+            }
+
+            if (email === "") {
+                document.getElementById("Eerror").innerText = "Please supply your email!";
+                k = 1;
+            } else if (!emailPat.test(email)) {
+                document.getElementById("Eerror").innerText = "Email must be in [abcd12@gmail.com] format.";
+                k = 1;
+            }
+
+            if (Address === "") {
+                document.getElementById("Aerror").innerText = "Please supply your address!";
+                l = 1;
+            }
+
+            if (city === "") {
+                document.getElementById("Cerror").innerText = "Please supply your city!";
+                m = 1;
+            }
+
+            if (projectdes === "") {
+                document.getElementById("Perror").innerText = "Please enter your project description!";
+                n = 1;
+            }
+
+            if (phone === "") {
+                document.getElementById("PHerror").innerText = "Please enter your phone number!";
+                q = 1;
+            } else if (!phonePat.test(phone)) {
+                document.getElementById("PHerror").innerText = "Phone number must be 10 digits.";
+                q = 1;
+            }
+
+            if (state === "") {
+                document.getElementById("Serror").innerText = "Please choose your state!";
+                p = 1;
+            }
+
+            var hostresult = false;
+            for (var a = 0; a < host.length; a++) {
+                if (host[a].checked) {
+                    hostresult = true;
+                }
+            }
+
+            if (!hostresult) {
+                document.getElementById("Rerror").innerText = "Please select a hosting option!";
+                s = 1;
+            }
+
+            if (i === 0 && j === 0 && k === 0 && l === 0 && m === 0 && n === 0 && p === 0 && q === 0 && s === 0) {
+                alert("Successfully Sent!");
+                document.getElementById("fid").value = "";
+                document.getElementById("lid").value = "";
+                document.getElementById("eid").value = "";
+                document.getElementById("aid").value = "";
+                document.getElementById("cid").value = "";
+                document.getElementById("pid").value = "";
+                document.getElementById("phoneid").value = "";
+                document.getElementById("stateid").value = "";
+                var hosted = document.getElementsByName("hosting");
+                for (let i = 0; i < hosted.length; i++) {
+                    hosted[i].checked = false;
+                }
+            } else {
+                alert("Invalid credentials!");
+            }
+        }
+    </script>
+</body>
 </html>
