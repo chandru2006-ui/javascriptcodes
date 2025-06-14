@@ -1,174 +1,185 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <style>
-            body
-            {
-                margin-top: 10px;
-                margin-left: 500px;
-                background-image: url("calimg.jpg");
-                
-            }
-            .container
-            {
-                width: 100%;
-                max-width: 500px;
-                min-height: 50%;
-                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                border: 2px solid black;
-                padding: 20px;
-                text-align: center;
-                background-color:bisque;
-                box-sizing: border-box;
-                border-radius: 30px;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsive Calculator</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        background-image: url("calimg.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        min-height: 100vh;
+        box-sizing: border-box;
+      }
 
-                
+      .container {
+        width: 100%;
+        max-width: 500px;
+        background-color: bisque;
+        padding: 20px;
+        border: 2px solid black;
+        border-radius: 30px;
+        text-align: center;
+      }
 
-            }
-            .container lable
-            {
-                font-weight: bold;
-                font-size: larger;
-            }
-            input[type="button"]
-            {
-                border: 1px solid black;
-                padding: 10px;
-                border-radius: 10px;
-                background-color: #0095f6;
-                border: none;
-                color: white;
-                width: 20%;
-                font-weight: bold;
-            }
-            input[type="number"]
-            {
-                padding: 15px;
-                border: 2px solid black;
-                border-radius: 10px;
-                text-align: center;
-            }
-            div .re1
-            {
-                background-color: red;
-                border: none;
-                width: 30%;
-                font-weight: bold;
-                font-size: large;
-            }
-            #result
-            {
-                border: 2px solid black;
-                padding: 20px;
-                width: 70%;
-                margin-left: 80px;
-                background-color: aliceblue;
-                border: none;
-                border-radius: 10px;
-                box-sizing: border-box;
-                color: blue;
-                
-            }
-            .back-button
-    {
-        margin-top: 20px;
-        width: 15%;
-        padding: 10px;
+      .container label {
         font-weight: bold;
-        font-size: medium;
-        margin-left: 700px;
-        background-color: blue;
-        border: none;
-        font-weight: bold;
+        font-size: large;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      input[type="number"] {
+        width: 90%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 2px solid black;
         border-radius: 10px;
+        text-align: center;
+      }
+
+      input[type="button"] {
+        padding: 10px;
+        margin: 5px;
+        border: none;
+        border-radius: 10px;
+        background-color: #0095f6;
         color: white;
+        font-weight: bold;
+        width: 40%;
+        max-width: 150px;
+      }
+
+      .re1 {
+        background-color: red !important;
+        width: 60%;
+        max-width: 200px;
+        color: white;
+        font-weight: bold;
+        font-size: large;
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+      }
+
+      #result {
+        background-color: aliceblue;
+        border-radius: 10px;
+        padding: 20px;
+        margin-top: 10px;
+        font-size: large;
+        color: blue;
+        word-wrap: break-word;
+      }
+
+      .back-button {
+        margin-top: 20px;
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        font-weight: bold;
         font-size: medium;
-    }
-     .back-button:hover
-     {
-        background-color:cornflowerblue;
-     }
-            
-        </style>
-        <div class="container">
-            <h1>Calculator</h1>
-        <form>
-           <lable>Number 1</lable> 
-            <input type="number" placeholder="number1" id="num1" required >
-            <br><br>
-            <lable>Number 2</lable>
-            <input type="number" placeholder="number2" id="num2" required >
-            <br><br><br>
-            <input type="button" value="Addition" onclick="add()">&nbsp;&nbsp;&nbsp;
-            <input type="button" value="Subtraction" onclick="sub()">&nbsp;&nbsp;&nbsp;
-            <input type="button" value="Multiply" onclick="mul()">&nbsp;&nbsp;&nbsp;
-            <input type="button" value="division" onclick="div()">&nbsp;&nbsp;&nbsp;
-        </form><br>
-           <div><input class="re1" type="button" value="reset" onclick="reset()"></div>
-           <br>
-           <h1>Result :</h1>
-           <div id="result" ></div>
-           
-           </div>
-           <button onclick="location.href='index.html'" class="back-button">
-    Back
-    </button>
-           
-        <script>
-            function add()
-            {
-            alert("Welcome to Addition");
-            var num1=Number(document.getElementById("num1").value);
-            var num2=Number(document.getElementById("num2").value);
-            var result=num1+num2;
-            document.getElementById("result").innerHTML="Addition :"+result;
-            
+      }
 
-            }
-            function sub()
-            {
-            alert("Welcome to Subtraction");
-            var num1=document.getElementById("num1").value;
-            var num2=document.getElementById("num2").value;
-            var result=num1-num2;
-            document.getElementById("result").innerHTML="Subtraction :"+result;
-            
+      .back-button:hover {
+        background-color: cornflowerblue;
+      }
 
-            }
-            function mul()
-            {
-            alert("Welcome to Multiplication");
-            var num1=document.getElementById("num1").value;
-            var num2=document.getElementById("num2").value;
-            var result=num1*num2;
-            document.getElementById("result").innerHTML="Multiplication :"+result;
-            
-
-            }
-            function div()
-            {
-            alert("Welcome to Division");
-            var num1=document.getElementById("num1").value;
-            var num2=document.getElementById("num2").value;
-            if(num2==0)
-            {
-                alert("please try again!zero became infinite");
-            }
-            else{
-            
-            var result=num1/num2;
-            document.getElementById("result").innerHTML="division :"+result;
-            
-            }
-
-           }
-           
-        function reset()
-        {
-            document.getElementById("num1").value=" ";
-            document.getElementById("num2").value=" ";
-            document.getElementById("result").innerHTML=" ";
+      @media screen and (max-width: 600px) {
+        input[type="button"] {
+          width: 100%;
         }
 
-        </script>
-    </body>
+        .re1 {
+          width: 100%;
+        }
+
+        input[type="number"] {
+          width: 100%;
+        }
+
+        .back-button {
+          width: 100%;
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculator</h1>
+      <form>
+        <label>Number 1</label>
+        <input type="number" placeholder="number1" id="num1" required />
+        <label>Number 2</label>
+        <input type="number" placeholder="number2" id="num2" required />
+        <br />
+        <input type="button" value="Addition" onclick="add()" />
+        <input type="button" value="Subtraction" onclick="sub()" />
+        <input type="button" value="Multiply" onclick="mul()" />
+        <input type="button" value="Division" onclick="div()" />
+      </form>
+      <br />
+      <input class="re1" type="button" value="Reset" onclick="reset()" />
+      <h1>Result :</h1>
+      <div id="result"></div>
+    </div>
+    <button onclick="location.href='index.html'" class="back-button">
+      Back
+    </button>
+
+    <script>
+      function add() {
+        alert("Welcome to Addition");
+        var num1 = Number(document.getElementById("num1").value);
+        var num2 = Number(document.getElementById("num2").value);
+        var result = num1 + num2;
+        document.getElementById("result").innerHTML = "Addition: " + result;
+      }
+
+      function sub() {
+        alert("Welcome to Subtraction");
+        var num1 = Number(document.getElementById("num1").value);
+        var num2 = Number(document.getElementById("num2").value);
+        var result = num1 - num2;
+        document.getElementById("result").innerHTML = "Subtraction: " + result;
+      }
+
+      function mul() {
+        alert("Welcome to Multiplication");
+        var num1 = Number(document.getElementById("num1").value);
+        var num2 = Number(document.getElementById("num2").value);
+        var result = num1 * num2;
+        document.getElementById("result").innerHTML =
+          "Multiplication: " + result;
+      }
+
+      function div() {
+        alert("Welcome to Division");
+        var num1 = Number(document.getElementById("num1").value);
+        var num2 = Number(document.getElementById("num2").value);
+        if (num2 == 0) {
+          alert("Please try again! Division by zero is not allowed.");
+        } else {
+          var result = num1 / num2;
+          document.getElementById("result").innerHTML = "Division: " + result;
+        }
+      }
+
+      function reset() {
+        document.getElementById("num1").value = "";
+        document.getElementById("num2").value = "";
+        document.getElementById("result").innerHTML = "";
+      }
+    </script>
+  </body>
 </html>
