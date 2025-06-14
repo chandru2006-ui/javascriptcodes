@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Weather Forecast</title>
   <style>
     body {
@@ -8,6 +9,7 @@
       background-color: skyblue;
       text-align: center;
       padding: 50px;
+      margin: 0;
     }
     input {
       padding: 10px;
@@ -18,7 +20,7 @@
       border: none;
     }
     button {
-      padding: 10px;
+      padding: 10px 15px;
       font-weight: bold;
       border-radius: 5px;
       background-color: #007BFF;
@@ -26,16 +28,22 @@
       color: white;
       cursor: pointer;
     }
+    button:hover {
+      background-color: #0056b3;
+    }
     #result {
       margin-top: 30px;
       font-size: 18px;
       color: rgb(53, 51, 51);
-      border-radius: 20px;
+      border-radius: 15px;
+      padding: 20px;
       background-color: cadetblue;
     }
     .error {
       color: red;
       font-weight: bold;
+      background-color: transparent;
+      padding: 15px;
     }
     img {
       width: 100px;
@@ -43,55 +51,64 @@
     }
     .container {
       background-color: rgb(34, 175, 218);
-      padding: 20px;
-      text-align: center;
+      padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px gray;
-      width: 350px;
+      width: 90%;
+      max-width: 400px;
       margin: auto;
     }
     h2 {
       font-size: 30px;
+      margin-bottom: 20px;
     }
-    .back-button
-    {
-        margin-top: 250px;
-        width: 13%;
-        font-weight: bold;
-        font-size: medium;
-        margin-left: 1000px;
-        background-color: blue;
+    .back-button {
+      margin-top: 50px;
+      padding: 12px 24px;
+      background-color: blue;
+      color: white;
+      font-weight: bold;
+      font-size: medium;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
     }
-    .back-button:hover
-    {
-        background-color: #007BFF;
+    .back-button:hover {
+      background-color: #007BFF;
     }
   </style>
 </head>
 <body>
 
   <div class="container">
-    <h2>🌧️ Weather Forecast App</h2>
-
-    <input type="text" id="city" placeholder="Enter City">
+    <h2>🌦️ Weather Forecast App</h2>
+    <input type="text" id="city" placeholder="Enter City" required>
     <button onclick="getWeather()">Check Weather</button>
 
     <div id="result"></div>
   </div>
- <button onclick="location.href='index.html'" class="back-button">
+
+  <button onclick="location.href='index.html'" class="back-button">
     Back
- </button>
+  </button>
+
   <script>
     async function getWeather() {
-      const city = document.getElementById("city").value;
-      const apiKey = "22332068219700aaef959a27e71ee009"; // Replace with your actual API key
+      const city = document.getElementById("city").value.trim();
+      const apiKey = "22332068219700aaef959a27e71ee009"; // Your API Key
+      const resultDiv = document.getElementById("result");
+
+      if (city === "") {
+        resultDiv.className = "error";
+        resultDiv.innerHTML = "Please enter a city name.";
+        return;
+      }
+
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
       try {
         const response = await fetch(url);
         const data = await response.json();
-
-        const resultDiv = document.getElementById("result");
 
         if (data.cod === 200) {
           const temp = data.main.temp;
@@ -102,24 +119,19 @@
 
           resultDiv.className = "";
           resultDiv.innerHTML = `
-            <h3>Weather in ${data.name}</h3>
+            <h3>📍 Weather in ${data.name}</h3>
             <img src="${iconUrl}" alt="Weather Icon"><br>
-            🌡️ Temperature: ${temp}°C<br>
-            ☁️ Condition: ${desc}<br>
-            💨 Wind Speed: ${wind} m/s
+            🌡️ <strong>Temperature:</strong> ${temp}°C<br>
+            ☁️ <strong>Condition:</strong> ${desc}<br>
+            💨 <strong>Wind Speed:</strong> ${wind} m/s
           `;
         } else {
           resultDiv.className = "error";
-          resultDiv.innerHTML= "City not found!";
-          resultDiv.style.color="red";
-
+          resultDiv.innerHTML = "City not found!";
         }
       } catch (error) {
-        const resultDiv = document.getElementById("result");
         resultDiv.className = "error";
-        resultDiv.innerHTML = "Error fetching data.";
-        resultDiv.style.color="red";
-        
+        resultDiv.innerHTML = " Error fetching data.";
       }
     }
   </script>
