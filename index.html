@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Program Outputs</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: rgb(127, 150, 255);
+      background-color: rgb(30, 39, 77);
       text-align: center;
       margin: 0;
       padding: 0;
     }
 
     h1 {
-      color: rgb(10, 4, 4);
+      color: rgb(243, 0, 0);
       padding: 20px 0;
     }
 
@@ -21,7 +23,7 @@
       justify-content: center;
       flex-wrap: wrap;
       gap: 50px;
-      padding-bottom: 50px;
+      padding: 20px;
     }
 
     .column {
@@ -40,22 +42,48 @@
       font-weight: bold;
       color: white;
       width: 180px;
-      transition: 0.3s;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     button:hover {
       background-color: #07c1ff;
+      transform: scale(1.05);
+    }
+
+    /* 👇 Mobile & Small Devices */
+    @media (max-width: 768px) {
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .column {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      button {
+        width: 90vw; /* full width on small screens */
+        max-width: 300px;
+      }
+
+      h1 {
+        font-size: 24px;
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My JavaScriot Assesment!</h1>
+
+  <h1>Welcome to My JavaScript Assessment!</h1>
 
   <div class="button-container">
     <div class="column">
       <button onclick="window.open('prime.html', '_blank')">Prime</button>
       <button onclick="window.open('login.html', '_blank')">Login</button>
-      <button onclick="window.open('formvalidation .html', '_blank')">FormValidation</button>
+      <button onclick="window.open('formvalidation.html', '_blank')">FormValidation</button>
       <button onclick="window.open('passoradGenarator.html', '_blank')">PGenarator</button>
       <button onclick="window.open('sort1.html', '_blank')">Sort</button>
       <button onclick="window.open('reverse.html', '_blank')">Reverse</button>
@@ -70,5 +98,6 @@
       <button onclick="window.open('localstorage.html', '_blank')">Localstorage</button>
     </div>
   </div>
+
 </body>
 </html>
