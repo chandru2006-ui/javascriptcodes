@@ -7,38 +7,35 @@
   <style>
     body {
       background-color: aqua;
-      background-image: url("number.jpg.crdownload");
       margin: 0;
       padding: 0;
-      font-family:Arial, Helvetica, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      border-radius: 5px;
     }
 
     h1 {
       margin: 20px;
       color: white;
+      text-align: center;
     }
 
     .container {
       width: 90%;
       max-width: 600px;
       border: 2px solid black;
-      background-color:pink;
+      background-color: pink;
       padding: 40px;
       box-sizing: border-box;
-      border-collapse: collapse;
       border-radius: 10px;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      background-color:cadetblue;
-      
+      background-color: cadetblue;
     }
 
     th, td {
@@ -48,23 +45,16 @@
       border-radius: 5px;
     }
 
-    input[type="number"] {
+    input[type="text"], textarea {
       width: 100%;
-      padding: 10px;
-      box-sizing: border-box;
-      border-radius: 5px;
-    }
-    input,textarea
-    {
       padding: 12px;
       border-radius: 5px;
       box-sizing: border-box;
-      border-collapse: collapse;
-      border:2px solid black
+      border: 2px solid black;
     }
 
     button {
-      width: 50%;
+      width: 100%;
       padding: 10px;
       background-color: green;
       color: white;
@@ -73,49 +63,59 @@
       cursor: pointer;
       border-radius: 5px;
     }
-    #b2
-    {
+
+    #b2 {
       background-color: red;
     }
-    
+
+    .back-button {
+      padding: 15px;
+      background-color: blue;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      font-size: medium;
+      margin: 40px auto;
+      width: 150px;
+      text-align: center;
+      display: block;
+    }
+
+    .back-button:hover {
+      background-color: cornflowerblue;
+    }
 
     @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 20px;
+      }
+
       th, td {
         font-size: 14px;
         padding: 8px;
       }
+
       button {
         font-size: 14px;
       }
+
+      .container {
+        padding: 20px;
+      }
+
+      .back-button {
+        width: 100%;
+      }
     }
-     .back-button {
-                padding: 15px;
-                background-color: white;
-                width: 15%;
-                color:white;
-                font-weight: bold;
-                border: none;
-                border-radius: 10px;
-                background-color: blue;
-                font-weight: bold;
-                font-weight: bold;
-                font-size: medium;
-                text-align: center;
-                margin-left: 1000px;
-                margin-top: 100px;
-            }
-            .back-button:hover
-            {
-              background-color: cornflowerblue;
-            }
-  </
   </style>
 </head>
 <body>
 
   <h1>Prime Number Generation</h1>
 
-  <div class="container"><form>
+  <div class="container">
+    <form>
       <table>
         <tr>
           <td>Start</td>
@@ -130,49 +130,42 @@
           <td><textarea id="result" style="color: blue;" rows="5" cols="25">Result</textarea></td>
         </tr>
         <tr>
-          <td id="but"><button type="button" onclick="primeNum()">Submit</button></td>
-          <td><button onclick="reset()" id="b2">Reset</button></td>
+          <td><button type="button" onclick="primeNum()">Submit</button></td>
+          <td><button type="button" onclick="reset()" id="b2">Reset</button></td>
         </tr>
-      </table></form>
+      </table>
+    </form>
   </div>
-   <div class="bottom-bar">
-            <input onclick="location.href='index.html'" value="Back" class="back-button">
-    </div>
-  <script>
-   function primeNum()
-   {
-       var array=[];
-       var start=Number(document.getElementById("start").value);
-       var end=Number(document.getElementById("end").value);
-       var i,j;
-      
-       for(i=start;i<=end;i++)
-       {
-           let count=0;
-           for(j=2;j<=end;j++)
-           {
-              if(i%j==0)
-              {
-                count++;
-              }
-           }
-           if(count==1)
-           {
-              array.push(i);
-           }
-       }
-       document.getElementById("result").innerHTML=array.join(",");
-       
 
-   }
-   function reset()
-   {
-       document.getElementById("start").value="";
-       document.getElementById("end").value="";
-       document.getElementById("result")="";
-   }
-</script>
+  <input type="button" onclick="location.href='index.html'" value="Back" class="back-button">
+
+  <script>
+    function primeNum() {
+      var array = [];
+      var start = Number(document.getElementById("start").value);
+      var end = Number(document.getElementById("end").value);
+      var i, j;
+
+      for (i = start; i <= end; i++) {
+        let count = 0;
+        for (j = 2; j <= end; j++) {
+          if (i % j == 0) {
+            count++;
+          }
+        }
+        if (count == 1) {
+          array.push(i);
+        }
+      }
+      document.getElementById("result").innerHTML = array.join(",");
+    }
+
+    function reset() {
+      document.getElementById("start").value = "";
+      document.getElementById("end").value = "";
+      document.getElementById("result").value = "";
+    }
+  </script>
 
 </body>
-
 </html>
