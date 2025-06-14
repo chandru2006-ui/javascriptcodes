@@ -1,213 +1,200 @@
-<html>
-    <body>
-        <style>
-            body
-            {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                background-image: url("insta2.jpg");
-            }
-         .container
-         {
-            width: 100%;
-            max-width: 350px;
-            border-radius: 10px;
-            box-sizing: border-box;
-            margin:0px;
-            padding: 20px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            background-color:#ebeaea;
-            position: relative;
-            border: none;
-            
-            
-        }
-        img
-        {
-            width:50%;
-        }
-        
-        .input-box
-        {
-            display: flex;
-            align-items: center;
-            border: 1px solid black;
-            
-        }
-        .input-box input
-        {
-            display: flex;
-            flex: 1;
-            padding-left: 10px; 
-            padding: 15px;
-            text-align: center;
-            border: none;
-            outline: none;
-            box-sizing: border-box;
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-        }
-        .input-box .icon
-        {
-            display: flex;
-            align-items: center;
-            border-right: 2px solid #0f0f0f;
-            padding: 11px;
-            justify-content: center;
-            background-color: gainsboro;
-            
-
-
-        }
-
-        div p{
-            text-align: center;
-        }
-
-         .forgot
-         {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-         }
-          
-         input[type="button"]
-         {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;         
-            background-color:#0095f6;
-            border: none;
-            color: white;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-            font-size:large
-            
-         }
-         h1
-         {
-            margin-top: 0px;
-            text-align: center;
-            color: black;
-            font-family:Georgia, 'Times New Roman', Times, serif;
-            font-style: italic;
-            
-         }
-         .signup
-         {
-            margin-top: 20px;
-            left: 50px;
-         }
-         a
-         {
-            text-decoration: none;
-         }
-         .insta-logo img{
-            width: 20%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-left: 140px;
-            margin-top:0px;
-         }
-    .back-button
-    {
-        margin-top: 70px;
-        width: 15%;
-        font-weight: bold;
-        font-size: medium;
-        margin-left: 1000px;
-        background-color: blue;
-        color: white;
-        border: none;
-        padding: 13px;
-        border-radius: 10px;
-        text-align: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Login</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-image: url("insta2.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: 20px;
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', Times, serif;
     }
-    .back-button:hover
-    {
-        background-color: #007BFF;
+
+    .container {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #ebeaea;
+      box-sizing: border-box;
     }
-         
-        </style>
-        <div class="container">
-            <div class="insta-logo">
-            <img src="instagram.png" >
-            </div>
-            <h1>Instagram</h1>
-           
 
-           <form>
-            <div class="input-box">
-            <div class="icon">
-            <img src="username.svg" class="image1"> 
-            </div>
-            <input type="text" id="hname" placeholder="Username" required>
-            </div>
-            <p id="error1"></p>
+    .insta-logo img {
+      width: 30%;
+      margin: 0 auto;
+      display: block;
+    }
 
-            <br><br>
-            <div class="input-box">
-            <div class="icon">
-            <img src="password.svg" class="image1">
-            </div>
-            <input type="password" id="hpas" placeholder="Password" required>
-            </div>
-            <p id="error2"></p>
+    h1 {
+      text-align: center;
+      color: black;
+      font-style: italic;
+    }
 
-            <br><br>
-           <input type="button" value="Log in" onclick="validate()">
-           <br><br>
+    .input-box {
+      display: flex;
+      align-items: center;
+      border: 1px solid black;
+      margin-top: 15px;
+      background-color: white;
+    }
 
+    .input-box .icon {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: gainsboro;
+      border-right: 2px solid #0f0f0f;
+    }
 
-           <div class="forgot">
-          <lable><input type="checkbox"name="hrem" id="hreminder">Reminder me</lable>
-           <a href="#">Forgot Password?</a>
-           </div>
-            
-        <div class="signup">
-          <p>Don't have an account !<a href="#" >sign Up here</a></p>  
+    .input-box input {
+      flex: 1;
+      padding: 15px;
+      text-align: center;
+      border: none;
+      outline: none;
+    }
+
+    p {
+      text-align: center;
+      color: red;
+      margin: 5px 0 0 0;
+    }
+
+    .forgot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #0095f6;
+      border: none;
+      color: white;
+      font-size: large;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .signup {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .signup a, .forgot a {
+      color: #0095f6;
+      text-decoration: none;
+    }
+
+    .back-button {
+      margin-top: 30px;
+      padding: 12px;
+      border-radius: 10px;
+      background-color: blue;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
+      max-width: 150px;
+    }
+
+    .back-button:hover {
+      background-color: #007BFF;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+
+      .input-box input {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      input[type="button"], .back-button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="insta-logo">
+      <img src="instagram.png">
+    </div>
+    <h1>Instagram</h1>
+    <form>
+      <div class="input-box">
+        <div class="icon">
+          <img src="username.svg" class="image1">
         </div>
+        <input type="text" id="hname" placeholder="Username" required>
+      </div>
+      <p id="error1"></p>
 
-        </form>
+      <div class="input-box">
+        <div class="icon">
+          <img src="password.svg" class="image1">
         </div>
-        <div class="bottom-bar">
-        <input onclick="location.href='index.html'" value="Back" class="back-button">
-        </div>
+        <input type="password" id="hpas" placeholder="Password" required>
+      </div>
+      <p id="error2"></p>
 
-    <script>
-        function validate()
-        {
-            var username=document.getElementById("hname").value;
-            var password=document.getElementById("hpas").value;
-            var error1=document.getElementById("error1");
-            var error2=document.getElementById("error2");
-            var usernamePat=/^(?!_)[a-zA-Z0-9@#$%&]{10,20}(?!.*_$)/;
-            var passwordPat=/^(?=.*[A-Z])(?=.*[@#$%&])[a-zA-Z0-9@#$%&]{10,20}$/;
-            if(!usernamePat.test(username))
-            {
-                error1.style.color="red";
-                error1.innerText="Username length minimum 10 maximum 20,special character[@#$%&]";
-            }
-            if(!passwordPat.test(password))
-            {
-                error2.style.color="red";
-                error2.innerText="Password length must minimum 10 maximum 20,must be one special character[@#$%&],must be one capital Alphabert";
+      <input type="button" value="Log in" onclick="validate()">
 
-            }
-            if(usernamePat.test(username) && passwordPat.test(password))
-            {
-                alert("Login Succesfully!");
-            }
-            else
-            {
-                alert("Invalid Credential!please Try again");
-            }
+      <div class="forgot">
+        <label><input type="checkbox" id="hreminder"> Remember me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
 
-        }
-    </script>
-         
-    </body>
+      <div class="signup">
+        <p>Don't have an account? <a href="#">Sign up here</a></p>
+      </div>
+    </form>
+  </div>
+  <input onclick="location.href='index.html'" value="Back" class="back-button">
+
+  <script>
+    function validate() {
+      var username = document.getElementById("hname").value;
+      var password = document.getElementById("hpas").value;
+      var error1 = document.getElementById("error1");
+      var error2 = document.getElementById("error2");
+      var usernamePat = /^(?!_)[a-zA-Z0-9@#$%&]{10,20}(?!.*_$)/;
+      var passwordPat = /^(?=.*[A-Z])(?=.*[@#$%&])[a-zA-Z0-9@#$%&]{10,20}$/;
+
+      error1.innerText = "";
+      error2.innerText = "";
+
+      if (!usernamePat.test(username)) {
+        error1.innerText = "Username must be 10-20 characters, include @#$%&";
+      }
+      if (!passwordPat.test(password)) {
+        error2.innerText = "Password must be 10-20 characters, include 1 capital letter and 1 special char";
+      }
+
+      if (usernamePat.test(username) && passwordPat.test(password)) {
+        alert("Login Successfully!");
+      } else {
+        alert("Invalid Credentials! Please try again.");
+      }
+    }
+  </script>
+</body>
 </html>
