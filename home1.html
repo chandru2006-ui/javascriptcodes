@@ -1,112 +1,166 @@
-<html>
-    <body>
-    <div class="header-content">
-      <h1 style="color: #00ffcc;"><span>Flick</span>Finder</h1>
-        <div class="links-content">
-            <a href="#">Home</a>
-            <a href="#">Tv-Show</a>
-            <a href="#">Movie</a>
-            <a href="#">Upcoming</a>
-            <a href="#" class="Favorite-design">Favorite</a>
-        </div>
-    </div>
-
-    
-    <h2>Welcome to home home page!</h2>
-    
-    <div class="button-areas">
-     <button onclick="location.href='index.html'">
-      <img src="left1.png">
-     </button>
-     <button onclick="location.href='page1.html'">
-      <img src="right1.png">
-     </button>
-     </div>
-    <button onclick="location.href='index.html'" class="back-button">
-    Back
-    </button>
-    <style>
-    body
-    {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlickFinder</title>
+  <style>
+    body {
       margin: 0px;
       padding: 0px;
       background-image: url("index.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      font-family: Arial, sans-serif;
     }
-    .header-content
-    {
+
+    .header-content {
       background-color: rgb(109, 104, 104);
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      justify-content: space-between;
-      padding: 10px 10px ;
+      padding: 10px 20px;
+      flex-wrap: wrap;
     }
-    .links-content
-    {
+
+    .header-content h1 {
+      color: #00ffcc;
+      font-size: 30px;
+      margin: 0;
+    }
+
+    .links-content {
       display: flex;
-      justify-content: space-between;
       gap: 20px;
+      flex-wrap: wrap;
     }
-    .links-content a
-    {
+
+    .links-content a {
       text-decoration: none;
       color: white;
       font-weight: bold;
-      font-size: 20px;
+      font-size: 18px;
     }
-    .links-content a:hover
-    {
+
+    .links-content a:hover {
       text-decoration: underline;
     }
-    .Favorite-design
-    {
+
+    .Favorite-design {
       background-color: #00ffcc;
       padding: 10px;
-      border: 2px solid #00ffcc;
       border-radius: 10px;
+      border: 2px solid #00ffcc;
+      color: black !important;
     }
-    .button-areas{
-      display: flex;
-      justify-content: space-between;
-      top: 50%;
 
+    h2 {
+      text-align: center;
+      color: rgb(99, 192, 6);
+      margin-top: 120px;
+      font-size: 32px;
     }
-    button
-    {
+
+    .button-areas {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 30px 0;
+      flex-wrap: wrap;
+    }
+
+    .button-areas button {
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 100px;
       border: none;
-      
+      padding: 10px;
+      transition: background-color 0.3s;
     }
-    h2
-    {
-      text-align: center;
-      color: rgb(99, 192, 6);
-      margin-top: 200px;
-      font-size: 40px;
-    }
-    button:hover
-    {
-      background-color:red;
-    }
-    .back-button
-    {
-        margin-top: 150px;
-        width: 13%;
-        padding: 10px;
-        font-weight: bold;
-        font-size: medium;
-        margin-left: 1100px;
-        background-color: blue;
-    }
-     .back-button:hover
-     {
-        background-color:cornflowerblue;
-     }
-    
-    
 
-    </style>
-  
-    </body>
+    .button-areas button img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    button:hover {
+      background-color: red;
+    }
+
+    .back-button {
+      display: block;
+      margin: 50px auto;
+      width: 200px;
+      padding: 10px;
+      font-weight: bold;
+      font-size: medium;
+      background-color: blue;
+      color: white;
+      border-radius: 10px;
+      border: none;
+      transition: background-color 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: cornflowerblue;
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-content h1 {
+        font-size: 24px;
+      }
+
+      .links-content a {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-top: 80px;
+      }
+
+      .button-areas button img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .back-button {
+        width: 80%;
+        margin: 30px auto;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header-content">
+    <h1><span>Flick</span>Finder</h1>
+    <div class="links-content">
+      <a href="#">Home</a>
+      <a href="#">Tv-Show</a>
+      <a href="#">Movie</a>
+      <a href="#">Upcoming</a>
+      <a href="#" class="Favorite-design">Favorite</a>
+    </div>
+  </div>
+
+  <h2>Welcome to home home page!</h2>
+
+  <div class="button-areas">
+    <button onclick="location.href='index.html'">
+      <img src="left1.png" alt="Previous">
+    </button>
+    <button onclick="location.href='page1.html'">
+      <img src="right1.png" alt="Next">
+    </button>
+  </div>
+
+  <button onclick="location.href='index.html'" class="back-button">Back</button>
+</body>
 </html>
